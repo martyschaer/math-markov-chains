@@ -1,4 +1,4 @@
-# kom-antike-rhetorik
+# Pagerank mit Markov-Chains
 Präsentation und Handout über Pagerank mithilfe von Markov-Chains
 
 ## Präsentation
