@@ -1,0 +1,4 @@
+The following software is needed to compile:
+ - cmake
+ - pandoc
+ - XeLaTeX
