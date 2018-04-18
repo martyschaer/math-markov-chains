@@ -1,8 +1,8 @@
 # kom-antike-rhetorik
-Präsentation und Handout über "Antike Rhetorik" im Kommunikationsmodul
+Präsentation und Handout über Pagerank mithilfe von Markov-Chains
 
 ## Präsentation
 Die Präsentationsfolien sind [hier zu finden](slides.pdf).
 
 ## Zusammenfassung
-Die Zusammenfassung ist [hier zu finden](handout.pdf).
+Das Handout ist [hier zu finden](handout.pdf).
