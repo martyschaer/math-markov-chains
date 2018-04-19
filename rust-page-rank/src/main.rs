@@ -1,6 +1,9 @@
 /**
  * Don't ask why I've done this but I did.
  */
+mod page;
+
+use page::Page;
 use std::collections::HashMap;
 
 /**
@@ -18,6 +21,21 @@ const DAMPING_FACTOR: f32 = 0.85;
 // http://ilpubs.stanford.edu:8090/361/1/1998-8.pdf
 // http://www.cs.princeton.edu/~chazelle/courses/BIB/pagerank.htm
 fn main() {
+    let mut pages: Vec<Page> = Vec::new();
+
+    pages.push(Page::new(String::from("A")));
+    pages.push(Page::new(String::from("B")));
+    pages.push(Page::new(String::from("C")));
+    pages.push(Page::new(String::from("D")));
+
+    for page in pages.iter() {
+        println!(
+            "The page {} has a page rank of {:.2}.",
+            page.get_name(),
+            page.get_page_rank()
+        );
+    }
+
     // Create a hash map with the "links"
     let mut links = HashMap::new();
     links.insert("A", vec!["B", "C"]);
@@ -26,14 +44,14 @@ fn main() {
     links.insert("D", vec!["C"]);
 
     // This hash map keeps tracks of the current values for the page ranks
-    let mut page_ranks = HashMap::new();
+    //let mut page_ranks = HashMap::new();
 
-    for n in 1..26 {
+    /*for n in 1..26 {
         println!("ITERATION N°{}", n);
         for source in links.keys() {
             calculate_page_rank(source, &links, &mut page_ranks);
         }
-    }
+    }*/
 }
 
 fn calculate_page_rank<'a>(
