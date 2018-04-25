@@ -1,6 +1,13 @@
 # PageRank mit Markov-Ketten
 
-Präsentation und Zusammenfassung über das Thema PageRank-Algorithmus mithilfe von Markov-Ketten.
+Präsentation und Zusammenfassung über das Thema PageRank-Algorithmus mithilfe von Markov-Ketten. Dies war eine Projektarbeit für das Modul BZG1152-LINALG an der BFH.
+
+## Autoren
+
+| Name            | Website                   |
+| --------------- | ------------------------- |
+| Severin Kaderli | https://severinkaderli.ch |
+| Marius Schär    | https://mariusschaer.ch   |
 
 ## Unterlagen
 
