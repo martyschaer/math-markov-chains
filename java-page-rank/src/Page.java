@@ -2,15 +2,22 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- *
+ * This class represents a single web page. It contains links to other pages
+ * and also keeps track of backlinks to itself. Finally it can calculate its
+ * own page rank.
  *
  * @author Severin Kaderli
  */
 public class Page {
     /**
-     * The damping factor that is used in the calculation of the page rank.
+     * The initial PageRank of the pages.
      */
-    private static final double DAMPING_FACTOR = 0.75;
+    private static final double INITIAL_PAGE_RANK = 0;
+
+    /**
+     * The damping factor that is used in the calculation of the PageRank.
+     */
+    private static final double DAMPING_FACTOR = 0.85;
 
     /**
      * The title of this page.
@@ -24,7 +31,12 @@ public class Page {
     private List<Page> links;
 
     /**
-     * The page rank of this page.
+     * This list contains all pages which link to this page.
+     */
+    private List<Page> backlinks;
+
+    /**
+     * The current PageRank of this page.
      */
     double pageRank;
 
@@ -36,11 +48,13 @@ public class Page {
     public Page(String title) {
         this.title = title;
         this.links = new ArrayList<>();
-        this.pageRank = 0;
+        this.backlinks = new ArrayList<>();
+        this.pageRank = INITIAL_PAGE_RANK;
     }
 
     /**
-     * Add a link to another page.
+     * Add a link to another page. It also adds itself as a backlink
+     * to the other page.
      *
      * @param page The page that will be linked to
      */
@@ -50,7 +64,18 @@ public class Page {
             return;
         }
 
+        page.addBacklink(this);
         this.links.add(page);
+    }
+
+    /**
+     * Add a backlink. This is only called in the addLink method to ensure
+     * that we keep track of backlinks.
+     *
+     * @param page The page where the backlink comes from
+     */
+    private void addBacklink(Page page) {
+        this.backlinks.add(page);
     }
 
     /**
@@ -63,27 +88,21 @@ public class Page {
     }
 
     /**
-     * Check if a specific link exists.
+     * Return the current PageRank.
      *
-     * @param page The page that will be checked
-     * @return True if a link to the page exists, false otherwise
+     * @return The current PageRank
      */
-    public boolean hasLink(Page page) {
-        return this.links.contains(page);
+    public double getPageRank() {
+        return this.pageRank;
     }
 
-    public void calculatePageRank(List<Page> pages) {
-        // Get all pages who link to this page
-        List<Page> linkingPages = new ArrayList<>();
-        for(Page page: pages) {
-            if(page.hasLink(this)) {
-                linkingPages.add(page);
-            }
-        }
-
+    /**
+     * Calculate the current page rank.
+     */
+    public void calculatePageRank() {
         // Calculate the unnormalized page rank
         double unnormalizedPageRank = 0;
-        for(Page page : linkingPages) {
+        for(Page page : this.backlinks) {
             unnormalizedPageRank += page.pageRank / page.getNumberOflinks();
         }
 
@@ -93,7 +112,7 @@ public class Page {
         this.pageRank = pageRank;
 
         // Some fancy output
-        System.out.printf("PR(%s) = (0.15) + 0.85 * %f\n", this.title, unnormalizedPageRank);
-        System.out.printf("PR(%s) = %f\n\n", this.title, this.pageRank);
+        System.out.printf("PR(%s) = (%.2f) + %.2f * %.2f\n", this.title, 1 - DAMPING_FACTOR, DAMPING_FACTOR, unnormalizedPageRank);
+        System.out.printf("PR(%s) = %.2f\n\n", this.title, this.pageRank);
     }
 }
