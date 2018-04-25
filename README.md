@@ -1,14 +1,24 @@
-# PageRank mit Markov-Chains
-Präsentation und Handout über PageRank mithilfe von Markov-Chains
+# PageRank mit Markov-Ketten
 
-## Präsentation
-Die Präsentationsfolien sind [hier zu finden](slides.pdf).
+Präsentation und Zusammenfassung über das Thema PageRank-Algorithmus mithilfe von Markov-Ketten.
 
-## Zusammenfassung
-Das Handout ist [hier zu finden](handout.pdf).
+## Unterlagen
+
+Die Präsentationsfolien und Zusammenfassung im PDF-Format können auf den folgenden Links gefunden werden.
+
+* [Folien](slides.pdf)
+* [Zusammenfassung](handout.pdf)
+
+## Kompilierung
+
+Die Präsentation und Zusammenfassung können mithilfe von Pandoc aus den vorhandenen Markdown-Dokumenten generiert werden. Dafür steht ein makefile zur Verfügung.
+
+Die Abhängigkeiten für die Kompilierung ist unter [DEPENDS](DEPENDS) festgehalten.
 
 ## Code-Beispiele
-Eine Beispiel Implementation in Java für den PageRank-Algorithmus ist in folgendem Repository zu finden: [https://github.com/severinkaderli/Java-PageRank](https://github.com/severinkaderli/Java-PageRank) 
 
-## Material
-Die Dateien im Ordner "material" wurden nicht durch uns hergestellt.
+Eine Beispiel Implementation in Java für den PageRank-Algorithmus ist in folgendem Repository zu finden: [https://github.com/severinkaderli/Java-PageRank](https://github.com/severinkaderli/Java-PageRank)
+
+## Material / Quellen
+
+Die Dateien im Ordner **material** wurden als Quelle für die Recherche dieser Präsentation und der Zusammenfassung verwendet. Sie wurden nicht von uns hergestellt.
