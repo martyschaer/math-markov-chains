@@ -1,6 +1,0 @@
-[package]
-name = "rust-page-rank"
-version = "0.1.0"
-authors = ["Severin Kaderli <severin.kaderli@gmail.com>"]
-
-[dependencies]
