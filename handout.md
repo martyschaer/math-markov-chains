@@ -11,9 +11,18 @@ links-as-notes:
   - true
 geometry:
   - margin=2.5cm
-
 ---
-[comment]: # (This is to achieve a pagebreak after the TOC and Timeline)
+
+[comment]: # "This is to achieve a pagebreak after the TOC and Timeline"
+
 \newpage
 
-# Einleitung
+# Was sind Markov-Ketten
+
+Markov-Ketten werden dazu verwendet um Situationen zu modellieren die aus verschiedenen Zuständen bestehen, wobei für die verschiedenen Übergänge zwischen den Zuständen jweils verschiedene Wahrscheinlichkeiten gelten.
+
+Dabei ist jeweils nur der aktuelle Zustand entscheidend für die Findung des nächsten Zustandes und wird nicht durch vorherige Zustände beeinflusst. Deshalb werden Markov-Ketten auch als gedächtnislos bezeichnet.
+
+$$
+
+$$
