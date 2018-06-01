@@ -3,7 +3,7 @@ title:          Pagerank mit Markov-Chains
 author:
   - Severin Kaderli
   - Marius Schär
-date:           2018-MM-dd
+date:           2018-06-08
 lang:           de-CH
 links-as notes: true
 classoption:
@@ -86,10 +86,57 @@ $$
 \end{vmatrix*}
 $$
 
-## PageRank
+## Probability Matrix
 $$
-\bordermatrix{  ~ & A   & B & C \cr
-                A & 0   & 0 & 1 \cr
-                B & 0.5 & 0 & 0 \cr
-                C & 0.5 & 1 & 0 \cr}
+\text{Probability Matrix } A = \bordermatrix{  ~ & A   & B & C \cr
+                A & 0 & 0.5 & 0.5 \cr
+                B & 0 & 0   & 1   \cr
+                C & 1 & 0   & 0   \cr}
+$$
+
+## Equations
+$V =$ PageRank Vektor
+
+$\lambda=$ Eigenwert. Immer $1$ bei Markov-Matricies
+
+$$
+A \cdot V = \lambda \cdot V
+$$
+
+\begin{center}
+$\downarrow$
+\end{center}
+
+$$
+\begin{bmatrix*}[r]
+0 & 0.5 & 0.5 \\
+0 & 0   & 1 \\
+1 & 0   & 0
+\end{bmatrix*} \cdot \begin{vmatrix*}[r]
+x \\
+y \\
+z
+\end{vmatrix*} = \begin{vmatrix*}[r]
+x \\
+y \\
+z
+\end{vmatrix*}
+$$
+
+## Solving
+$$
+\begin{bmatrix*}[r]
+-1 & 0.5 & 0.5 \\
+0  & -1  & 1   \\
+1  & 0   & -1
+\end{bmatrix*} = A - \lambda \cdot E \rightarrow A - 1 \cdot E
+$$
+
+## Solving
+$$
+\begin{bmatrix}[rrr|r]
+-1 & 0.5 & 0.5 & 0 \\
+0  & -1  & 1   & 0 \\
+1  & 0   & -1  & 0
+\end{bmatrix} = A - \lambda \cdot E \rightarrow A - 1 \cdot E
 $$

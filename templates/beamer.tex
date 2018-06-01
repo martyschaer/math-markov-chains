@@ -13,6 +13,15 @@ $if(beamer)$
 \usepackage{mathtools}
 \newcommand{\colsbegin}{\begin{columns}}
 \newcommand{\colsend}{\end{columns}}
+% begin matrix formatting
+\makeatletter
+\renewcommand*\env@matrix[1][*\c@MaxMatrixCols c]{%
+  \hskip -\arraycolsep
+  \let\@ifnextchar\new@ifnextchar
+  \array{#1}}
+\makeatother
+% end matrix formatting
+
 \setbeamertemplate{caption}[numbered]
 \setbeamertemplate{caption label separator}{: }
 \setbeamercolor{caption name}{fg=normal text.fg}
