@@ -40,3 +40,56 @@ mathfont:       Latin Modern Math
   \draw (A) .. controls +(-50:.4) and +(140:.4) .. (C);
   \draw (C) .. controls +(130:.4) and +(-40:.4) .. (A);
 \end{tikzpicture}
+
+## Graph
+\colsbegin
+\column{.5\textwidth}
+
+  \begin{tikzpicture}[shorten >=1mm, shorten <=1mm, ->]
+    \tikzstyle{vertex}=[circle,fill=black!25,minimum size=17pt,inner sep=0pt]
+    \node[vertex] (A) at (1,1) {$A$};
+    \node[vertex] (B) at (0,0) {$B$};
+    \node[vertex] (C) at (2,0) {$C$};
+    \draw (A) -- (B);
+    \draw (B) -- (C);
+    \draw (A) .. controls +(-55:.4) and +(145:.4) .. (C);
+    \draw (C) .. controls +(125:.4) and +(-35:.4) .. (A);
+  \end{tikzpicture}
+
+\column{.5\textwidth}
+
+There's nothing here$\vdots$
+
+\colsend
+
+## PageRank Formula
+  $$
+  PR(X) = (1-d) + d (\frac{PR(T_1)}{C(T_1)} + ... + \frac{PR(T_n)}{C(T_n)})
+  $$
+
+## Table
+
+Iteration| $PR(A)$| $PR(B)$| $PR(C)$
+:-------:|:----:|:----:|:----:
+0|1|1|1
+1|1|0.75|1.125
+2|1.0625|0.7656|1.1484
+$\vdots$|$\vdots$|$\vdots$|$\vdots$|
+12|1.0769|0.7692|1.1538
+
+## System of Equations
+$$
+\begin{vmatrix*}[r]
+ & x     & &      &-& 0.5z &=& 0.5 \\
+-& 0.25x & &      & &      &=& 0.5 \\
+-& 0.25x &-& 0.5y &+& z    &=& 0.5
+\end{vmatrix*}
+$$
+
+## PageRank
+$$
+\bordermatrix{  ~ & A   & B & C \cr
+                A & 0   & 0 & 1 \cr
+                B & 0.5 & 0 & 0 \cr
+                C & 0.5 & 1 & 0 \cr}
+$$
